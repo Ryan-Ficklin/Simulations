@@ -1,7 +1,7 @@
 import random
 import math
 
-roll = random.randint(1,6)
+roll = random.randint(1,8)
 counter1 = 0
 counter2 = 0
 counter3 = 0 
@@ -10,9 +10,9 @@ counter5 = 0
 counter6 = 0
 numRoll = int(input("How many times would you like to roll?: "))
 for i in range (numRoll):
-    roll = random.randint(1,6)
+    roll = random.randint(1,8)
     if(roll == 1):
-        counter1+=1
+        counter6+=1
     if(roll == 2):
         counter2+=1
     if(roll == 3):
@@ -21,8 +21,15 @@ for i in range (numRoll):
         counter4+=1
     if(roll == 5):
         counter5+=1
-    if(roll == 6):
-        counter6+=1
+    if(roll >= 6):
+        counter1+=1
+
+# Rolls 1 through 8, and anything greater than or equal to 6 will be counted as a 1, and any
+# 1 is counted as a 6, because the percents will then be the same for every number,
+# aside from 1, which is rolled a higher frequency of times
+# becuase there's the 1/6 chance isn't tampered with for every other roll, except
+# because of the possibility for rolling 7s and 8s weights the dice in 1's favor,
+# as they're counted as 1s.
     
 percent1 = (counter1/numRoll) * 100
 percent2 = (counter2/numRoll) * 100
