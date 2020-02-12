@@ -2,13 +2,27 @@ import random
 
 numFlips = int(input("How many flips? "))
 
-flips = [0] * 2
+flips = [0] * numFlips
+heads = 0
+tails = 0
+doubleHeads = 0
 
 for i in range(numFlips):
     flip = random.randint(0,1)
-    flips[flip-1] += 1
+    flips[i] += flip
 
-print("0 is tails, 1 is heads")
 for i in range(len(flips)):
-    print(f"{i}: {flips[i]}/{numFlips} = {flips[i]/numFlips*100}%")
+    if(flips[i] == 0):
+        tails+=1
+    elif(flips[i] == 1):
+        heads+=1
 
+print(f"{heads} Heads {heads/numFlips*100}%, {tails} Tails {tails/numFlips*100}%")
+    
+for i in range(len(flips)):
+    if(flips[i:i+3] == [0,0,1]):
+        doubleHeads+=1
+    #print(flips[i])
+
+
+print(f"Heads shows up twice in a row {doubleHeads} times")
